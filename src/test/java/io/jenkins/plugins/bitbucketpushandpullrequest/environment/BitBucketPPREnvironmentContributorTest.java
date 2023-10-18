@@ -33,6 +33,7 @@ import java.io.File;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -458,7 +459,7 @@ public class BitBucketPPREnvironmentContributorTest {
     String hookEventAction = "pr:opened";
     String prefix = "jenkinsUnitTests";
     String suffix = "environmentContributor_getBitbucketEventKeyTest";
-    File pollingLog = File.createTempFile(prefix, suffix);
+    File pollingLog = Files.createTempFile(prefix, suffix).toFile();
 
     BitBucketPPRAction bitbucketAction = mock(BitBucketPPRAction.class);
     BitBucketPPRHookEvent bitBucketHookEvent = new BitBucketPPRHookEvent(hookEventAction);
@@ -474,7 +475,7 @@ public class BitBucketPPREnvironmentContributorTest {
     String hookEventAction = "repo:refs_changed";
     String prefix = "jenkinsUnitTests";
     String suffix = "environmentContributor_getBitbucketEventKeyTest";
-    File pollingLog = File.createTempFile(prefix, suffix);
+    File pollingLog = Files.createTempFile(prefix, suffix).toFile();
 
     BitBucketPPRAction bitbucketAction = mock(BitBucketPPRAction.class);
     BitBucketPPRHookEvent bitBucketHookEvent = new BitBucketPPRHookEvent(hookEventAction);
